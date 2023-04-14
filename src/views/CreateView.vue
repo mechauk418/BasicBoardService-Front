@@ -56,7 +56,7 @@ import loginStore from '../store/index'
         console.log(createdata)
         testaxios({
           method: 'POST',
-          url: 'http://localhost:8000/articles/', 
+          url: 'http://basicboardservicebeanstalk-env.eba-ctjwe5vz.ap-northeast-2.elasticbeanstalk.com/articles/', 
           data: createdata,
           withCredentials : true,
           headers:{
@@ -66,7 +66,7 @@ import loginStore from '../store/index'
         })
         .then(response => {
           const article_pk = response.data.pk
-          // window.location.href="http://localhost:8080/detail/" + article_pk +'/'
+          window.location.href="https://basic-board-service-front.vercel.app/detail/" + article_pk +'/'
         })
         .catch(error =>{
           console.log(error)

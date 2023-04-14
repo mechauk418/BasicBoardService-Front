@@ -22,7 +22,7 @@
   </template>
   <script>
   import axios from 'axios'
-  const url = 'http://localhost:8000/accounts/';
+  const url = 'http://basicboardservicebeanstalk-env.eba-ctjwe5vz.ap-northeast-2.elasticbeanstalk.com/accounts/';
   
   export default {
     name: 'SignupForm',

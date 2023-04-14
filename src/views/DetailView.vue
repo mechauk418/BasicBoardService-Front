@@ -62,7 +62,7 @@ export default {
     }
     axios({
       method: "GET",
-      url: 'http://localhost:8000/articles/' + this.$route.params.pk + '/',
+      url: 'http://basicboardservicebeanstalk-env.eba-ctjwe5vz.ap-northeast-2.elasticbeanstalk.com/articles/' + this.$route.params.pk + '/',
       withCredentials:true
     })
     .then(res =>{
@@ -78,11 +78,11 @@ export default {
   },
   methods: {
     like() {
-      testaxios.post('http://localhost:8000/articles/' + this.$route.params.pk + '/like/')
+      testaxios.post('http://basicboardservicebeanstalk-env.eba-ctjwe5vz.ap-northeast-2.elasticbeanstalk.com/articles/' + this.$route.params.pk + '/like/')
       .then(
         axios({
           method: "GET",
-          url: 'http://localhost:8000/articles/' + this.$route.params.pk + '/'
+          url: 'http://basicboardservicebeanstalk-env.eba-ctjwe5vz.ap-northeast-2.elasticbeanstalk.com/articles/' + this.$route.params.pk + '/'
         })
         .then(res =>{
           this.article_like = res.data.like_article.length
@@ -90,7 +90,7 @@ export default {
       )
     },
     delete_article() {
-      testaxios.delete('http://localhost:8000/articles/' + this.$route.params.pk + '/')
+      testaxios.delete('http://basicboardservicebeanstalk-env.eba-ctjwe5vz.ap-northeast-2.elasticbeanstalk.com/articles/' + this.$route.params.pk + '/')
       .then(res => {
         this.$router.push('../articles')
       })
@@ -99,11 +99,11 @@ export default {
       const comment_data = {
         'content': this.comments_content
       }
-      testaxios.post('http://localhost:8000/articles/' + `${this.$route.params.pk}/comment/`, comment_data)
+      testaxios.post('http://basicboardservicebeanstalk-env.eba-ctjwe5vz.ap-northeast-2.elasticbeanstalk.com/articles/' + `${this.$route.params.pk}/comment/`, comment_data)
           .then((response) => {
             axios({ // 댓글 작성해서 리스트를 다시 불러옴
               method: 'GET',
-              url: 'http://localhost:8000/articles/' + this.$route.params.pk + '/',
+              url: 'http://basicboardservicebeanstalk-env.eba-ctjwe5vz.ap-northeast-2.elasticbeanstalk.com/articles/' + this.$route.params.pk + '/',
               headers: {
                 Authorization: 'Bearer ' + localStorage.getItem('access_token')
               }
