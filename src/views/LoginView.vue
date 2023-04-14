@@ -58,12 +58,12 @@ export default {
       this.$store.dispatch('login',logindata)
     },
     kakaologin() {
-      const KAKAO_REST_API_KEY ='17927c83c8f77eef6c83ef6dd7ff221c'
+      const KAKAO_REST_API_KEY =process.env.VUE_APP_KAKAO_REST_API_KEY
       const KAKAO_REDIRECT_URI = 'http://localhost:8080/login'
       window.location.href = `https://kauth.kakao.com/oauth/authorize?client_id=${KAKAO_REST_API_KEY}&redirect_uri=${KAKAO_REDIRECT_URI}&response_type=code&scope=account_email`
     },
     googlelogin() {
-      const SOCIAL_AUTH_GOOGLE_CLIENT_ID= '319698127254-ci76jba5ro0oj9ugs7qhfq3a5sp6irrv.apps.googleusercontent.com'
+      const SOCIAL_AUTH_GOOGLE_CLIENT_ID= process.env.VUE_APP_SOCIAL_AUTH_GOOGLE_CLIENT_ID
       const GOOGLE_CALLBACK_URI= 'http://localhost:8080/login'
       const scope = "https://www.googleapis.com/auth/userinfo.email"
       window.location.href = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${SOCIAL_AUTH_GOOGLE_CLIENT_ID}&response_type=code&redirect_uri=${GOOGLE_CALLBACK_URI}&scope=${scope}`
