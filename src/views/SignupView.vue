@@ -22,7 +22,7 @@
   </template>
   <script>
   import axios from 'axios'
-  const url = 'http://basicboardservicebeanstalk-env.eba-ctjwe5vz.ap-northeast-2.elasticbeanstalk.com/accounts/';
+  const url = 'https://www.rollthun.site/accounts/';
   
   export default {
     name: 'SignupForm',

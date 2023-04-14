@@ -56,7 +56,7 @@ import loginStore from '../store/index'
         console.log(createdata)
         testaxios({
           method: 'POST',
-          url: 'http://basicboardservicebeanstalk-env.eba-ctjwe5vz.ap-northeast-2.elasticbeanstalk.com/articles/', 
+          url: 'https://www.rollthun.site/articles/', 
           data: createdata,
           withCredentials : true,
           headers:{

@@ -26,7 +26,7 @@ const loginStore = {
   actions: {
     login (dispatch, loginObj) {
       axios
-        .post('http://basicboardservicebeanstalk-env.eba-ctjwe5vz.ap-northeast-2.elasticbeanstalk.com/accounts/login/', loginObj, { withCredentials : true}) // 로그인 URL로 ID, PW를 보냄
+        .post('https://www.rollthun.site/accounts/login/', loginObj, { withCredentials : true}) // 로그인 URL로 ID, PW를 보냄
         .then((res) => {
           console.log(res.data)
           const token = res.data.access_token
@@ -54,7 +54,7 @@ const loginStore = {
         })
     },
     kakaologin(dispatch, code){
-      axios.get(`http://basicboardservicebeanstalk-env.eba-ctjwe5vz.ap-northeast-2.elasticbeanstalk.com/accounts/kakao/callback/?code=${code}`, {withCredentials:true})
+      axios.get(`https://www.rollthun.site/accounts/kakao/callback/?code=${code}`, {withCredentials:true})
       .then((response) => {
         console.log(response)
         const token = response.data.access_token
@@ -69,7 +69,7 @@ const loginStore = {
       })
     },
     googlelogin(dispatch, code){
-      axios.get(`http://basicboardservicebeanstalk-env.eba-ctjwe5vz.ap-northeast-2.elasticbeanstalk.com/accounts/google/callback/?code=${code}`, {withCredentials:true})
+      axios.get(`https://www.rollthun.site/accounts/google/callback/?code=${code}`, {withCredentials:true})
       .then((response) => {
         const token = response.data.access_token
         localStorage.setItem('access_token', token) // 토큰을 저장함
@@ -84,7 +84,7 @@ const loginStore = {
     logouttest_act ({ commit }) { // 로그아웃 actions
       axios({
         method:'POST',
-        url:'http://basicboardservicebeanstalk-env.eba-ctjwe5vz.ap-northeast-2.elasticbeanstalk.com/accounts/logout/',
+        url:'https://www.rollthun.site/accounts/logout/',
         withCredentials:true
       })
       commit('logoutTest')
@@ -98,7 +98,7 @@ const loginStore = {
         }
       }
       axios
-        .get('http://basicboardservicebeanstalk-env.eba-ctjwe5vz.ap-northeast-2.elasticbeanstalk.com/accounts/user/', config) // 가져온 토큰을 헤더에 Authorization 로 담아서 요청을 보냄
+        .get('https://www.rollthun.site/accounts/user/', config) // 가져온 토큰을 헤더에 Authorization 로 담아서 요청을 보냄
         .then((response) => {
           // console.log(response)
           const userInfo = {

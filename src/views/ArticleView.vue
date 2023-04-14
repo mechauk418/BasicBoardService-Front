@@ -45,7 +45,7 @@ export default {
     }
   },
   mounted() {
-    testaxios.get('http://basicboardservicebeanstalk-env.eba-ctjwe5vz.ap-northeast-2.elasticbeanstalk.com/articles/')
+    testaxios.get('https://www.rollthun.site/articles/')
     .then(response => {
       this.articles = response.data.results
       this.page_next= response.data.next

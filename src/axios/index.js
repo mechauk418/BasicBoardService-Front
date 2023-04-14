@@ -17,7 +17,6 @@ testaxios.interceptors.response.use(
     if (status === 401) {
       if (error.response.data.detail === '이 토큰은 모든 타입의 토큰에 대해 유효하지 않습니다') { // 응답이 영어면 영어로 수정해서 사용한다.
         const originalRequest = config
-        console.log('여기')
         await store.dispatch('refreshtt')
         const newAccessToken = localStorage.getItem('access_token')
         axios.defaults.headers.common.Authorization = `Bearer ${newAccessToken}`

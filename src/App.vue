@@ -34,7 +34,7 @@ export default {
     refresh() {
       axios({
         method : 'POST',
-        url : 'http://basicboardservicebeanstalk-env.eba-ctjwe5vz.ap-northeast-2.elasticbeanstalk.com/accounts/token/refresh/',
+        url : 'https://www.rollthun.site/accounts/token/refresh/',
         withCredentials : true
       })
       .then(res=>{
