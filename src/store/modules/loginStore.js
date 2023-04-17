@@ -106,7 +106,7 @@ const loginStore = {
             email: response.data.email,
           } // 유저 정보를 받아옴
           commit('loginSuccess', userInfo) // mutations 호출
-          // window.location.href="https://basic-board-service-front.vercel.app/"
+          window.location.href="https://basic-board-service-front.vercel.app/"
           // router.push('logincheck')
         })
         .catch((err) => {
