@@ -70,7 +70,7 @@ export default {
       this.article_title = res.data.title
       this.article_content = res.data.content
       this.article_user = res.data.user
-      this.article_like = res.data.like_article.length
+      this.article_like = res.data.like_count
       this.article_image = res.data.images
       this.comments_list = res.data.comments
     })
@@ -80,13 +80,7 @@ export default {
     like() {
       testaxios.post('https://www.rollthun.site/articles/' + this.$route.params.pk + '/like/')
       .then(
-        axios({
-          method: "GET",
-          url: 'https://www.rollthun.site/articles/' + this.$route.params.pk + '/'
-        })
-        .then(res =>{
-          this.article_like = res.data.like_article.length
-        })
+        this.article_like = res.data.like_count
       )
     },
     delete_article() {
