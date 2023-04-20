@@ -79,8 +79,9 @@ export default {
   methods: {
     like() {
       testaxios.post('https://www.rollthun.site/articles/' + this.$route.params.pk + '/like/')
-      .then(
+      .then(res => {
         this.article_like = res.data.like_count
+      }
       )
     },
     delete_article() {
