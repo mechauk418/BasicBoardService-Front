@@ -82,10 +82,10 @@ export default {
       .then(
         axios({
           method: "GET",
-          url: 'https://www.rollthun.site/articles/' + this.$route.params.pk + '/'
+          url: 'https://www.rollthun.site/articles/' + this.$route.params.pk + '/like/'
         })
         .then(res =>{
-          this.article_like = res.data.like_count
+          this.article_like = res.data.count
         })
       )
     },
