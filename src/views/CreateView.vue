@@ -66,7 +66,7 @@ import loginStore from '../store/index'
         })
         .then(response => {
           const article_pk = response.data.pk
-          window.location.href="https://basic-board-service-front.vercel.app/detail/" + article_pk +'/'
+          window.location.href="https://basic-board-service-front.vercel.app/articles/" + article_pk +'/'
         })
         .catch(error =>{
           console.log(error)
