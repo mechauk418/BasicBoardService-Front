@@ -127,34 +127,27 @@ export default {
           })
     },
     commentDelete(pk) {
-      if (this.logincheck) {
-        axios.delete('https://www.rollthun.site/articles/' + `${this.$route.params.pk}/comment/${pk}/`)
-          .then((response) => {
-            axios({ // 댓글 작성해서 리스트를 다시 불러옴
-              method: 'GET',
-              url: 'https://www.rollthun.site/articles/' + this.$route.params.pk + '/',
-              headers: {
-                Authorization: 'Bearer ' + localStorage.getItem('access_token')
-              }
-            })
-              .then(response => {
-                this.article = res.data
-                this.article_title = res.data.title
-                this.article_content = res.data.content
-                this.article_user = res.data.user
-                this.article_like = res.data.like_article.length
-                this.article_image = res.data.images
-                this.comments_list = res.data.comments
-              })
-              .catch(response => {
-              })
+      axios.delete('https://www.rollthun.site/articles/' + `${this.$route.params.pk}/comment/${pk}/`)
+        .then((response) => {
+          axios({ // 댓글 작성해서 리스트를 다시 불러옴
+            method: 'GET',
+            url: 'https://www.rollthun.site/articles/' + this.$route.params.pk + '/',
+            headers: {
+              Authorization: 'Bearer ' + localStorage.getItem('access_token')
+            }
           })
-          .catch((err) => {
-            console.error(err)
+          .then(response => {
+            this.article = res.data
+            this.article_title = res.data.title
+            this.article_content = res.data.content
+            this.article_user = res.data.user
+            this.article_like = res.data.like_article.length
+            this.article_image = res.data.images
+            this.comments_list = res.data.comments
           })
-      } else {
-        alert('로그인 후 가능합니다.')
-      }
+          .catch(response => {
+          })
+        })
     },
 
   },
@@ -167,7 +160,7 @@ export default {
   border: 1px solid black;
   border-radius: 1cm;
   padding: 2rem;
-  margin: 50px;
+  margin: 250px;
 }
 
 .title {
