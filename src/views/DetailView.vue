@@ -23,6 +23,11 @@
           <div class="comment_content">
             <p> {{comment.content  }} </p>
           </div>
+          <div class="comment_content">
+            <button type="button" :class="`${comment.pk}`"
+                  @click="commentDelete(comment.pk)" style="background-color:red"
+                  v-if="login_user == comment.user">삭제</button>
+          </div>
         </div>
       </div>
       <form v-show="login_user" @submit.prevent="create_comment" class="myform">
@@ -120,7 +125,37 @@ export default {
             .catch(response => {
             })
           })
-    }
+    },
+    commentDelete(pk) {
+      if (this.logincheck) {
+        axios.delete('https://www.rollthun.site/articles/' + `${this.$route.params.pk}/comment/${pk}/`)
+          .then((response) => {
+            axios({ // 댓글 작성해서 리스트를 다시 불러옴
+              method: 'GET',
+              url: 'https://www.rollthun.site/articles/' + this.$route.params.pk + '/',
+              headers: {
+                Authorization: 'Bearer ' + localStorage.getItem('access_token')
+              }
+            })
+              .then(response => {
+                this.article = res.data
+                this.article_title = res.data.title
+                this.article_content = res.data.content
+                this.article_user = res.data.user
+                this.article_like = res.data.like_article.length
+                this.article_image = res.data.images
+                this.comments_list = res.data.comments
+              })
+              .catch(response => {
+              })
+          })
+          .catch((err) => {
+            console.error(err)
+          })
+      } else {
+        alert('로그인 후 가능합니다.')
+      }
+    },
 
   },
 }
