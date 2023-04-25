@@ -160,7 +160,7 @@ export default {
   border: 1px solid black;
   border-radius: 1cm;
   padding: 2rem;
-  margin: 250px;
+  margin: 200px;
 }
 
 .title {
