@@ -23,10 +23,8 @@
           <div class="comment_content">
             <p> {{comment.content  }} </p>
           </div>
-          <div class="comment_content">
-            <button type="button" :class="`${comment.pk}`"
-                  @click="commentDelete(comment.pk)" style="background-color:red"
-                  v-if="login_user == comment.user">삭제</button>
+          <div class="comment_button">
+            <button type="button" :class="`${comment.pk}`"@click="commentDelete(comment.pk)" v-if="login_user == comment.user">삭제</button>
           </div>
         </div>
       </div>
@@ -127,7 +125,7 @@ export default {
           })
     },
     commentDelete(pk) {
-      axios.delete('https://www.rollthun.site/articles/' + `${this.$route.params.pk}/comment/${pk}/`)
+      testaxios.delete('https://www.rollthun.site/articles/' + `${this.$route.params.pk}/comment/${pk}/`)
         .then((response) => {
           axios({ // 댓글 작성해서 리스트를 다시 불러옴
             method: 'GET',
