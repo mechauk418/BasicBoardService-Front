@@ -5,7 +5,7 @@
       <div class="title"><p>{{article_title  }}</p></div>
       <div class="writer"><p> 작성자 :  {{ article_user }}</p> </div>
       <div class="content"> <p> 내용 : {{ article_content }}</p></div>
-      <div v-for="image in article_image" :key="image">
+      <div v-for="image in article_image" :key="image" style="position: absolute; width:60%;">
         <img :src="image.image_original" v-if="image.image == null">
         <img :src="image.image" v-else>
       </div>
