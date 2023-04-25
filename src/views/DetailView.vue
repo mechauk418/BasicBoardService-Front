@@ -166,8 +166,8 @@ export default {
 .article_box {
   border: 1px solid black;
   border-radius: 1cm;
-  padding: 20rem;
-  margin: auto;
+  padding: 2rem;
+  margin: 50px;
 }
 
 .title {
