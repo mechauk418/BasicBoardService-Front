@@ -24,7 +24,7 @@
             <p> {{comment.content  }} </p>
           </div>
           <div class="comment_button">
-            <button type="button" :class="`${comment.pk}`"@click="commentDelete(comment.pk)" v-if="login_user == comment.user" style="background-color: white;">삭제</button>
+            <button type="button" :class="`${comment.pk}`" @click="commentDelete(comment.pk)" v-if="login_user == comment.user" style="background-color: white;">삭제</button>
           </div>
         </div>
       </div>
