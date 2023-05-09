@@ -95,7 +95,7 @@ export default {
     delete_article() {
       testaxios.delete('https://www.rollthun.site/articles/' + this.$route.params.pk + '/')
       .then(res => {
-        this.$router.push('..')
+        this.$router.push('.')
       })
     },
     create_comment() {
