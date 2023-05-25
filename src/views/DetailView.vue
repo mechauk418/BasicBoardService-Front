@@ -83,10 +83,7 @@ export default {
     like() {
       testaxios.post('https://www.rollthun.site/articles/' + this.$route.params.pk + '/like/')
       .then(
-        axios({
-          method: "GET",
-          url: 'https://www.rollthun.site/articles/' + this.$route.params.pk + '/like/'
-        })
+        testaxios.get('https://www.rollthun.site/articles/' + this.$route.params.pk + '/like/')
         .then(res =>{
           this.article_like = res.data.count
         })
