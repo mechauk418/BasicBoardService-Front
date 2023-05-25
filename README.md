@@ -23,3 +23,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 backend: https://rollthun.site/
 
 frontend: https://basic-board-service-front.vercel.app/
+<<<<<<< HEAD
+=======
+
+>>>>>>> ec5096a90107af35974c940d062a0c33e7f5cb29
